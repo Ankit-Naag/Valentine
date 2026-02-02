@@ -1,21 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Be My Valentine 💖</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="card">
-    <img src="https://media.tenor.com/2roX3uxz_68AAAAC/bear-love.gif" alt="bear" />
-    <h2>Will you be my Valentine? 💘</h2>
-
-    <div class="buttons">
-      <button id="yesBtn" class="yes" onclick="handleYes()">Yes</button>
-      <button id="noBtn" class="no" onclick="handleNo()">No</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Be My Valentine 💖</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="stardust" aria-hidden="true"></div>
+    <div class="floating-hearts" aria-hidden="true">
+      <span style="--i: 0"></span>
+      <span style="--i: 1"></span>
+      <span style="--i: 2"></span>
+      <span style="--i: 3"></span>
+      <span style="--i: 4"></span>
+      <span style="--i: 5"></span>
     </div>
-  </div>
 
-  <script src="script.js"></script>
-</body>
+    <main class="page">
+      <header class="intro">
+        <p class="tagline">For the one who makes every day sweeter</p>
+        <h1>Will you be my Valentine?</h1>
+        <p class="intro-copy">
+          From late-night talks to morning coffee kisses, you are the sparkle in
+          my routine. Let's make this February 14th the start of the best
+          chapter yet.
+        </p>
+      </header>
+
+      <section class="proposal">
+        <div class="hero-card">
+          <div class="gif-panel">
+            <div class="gif-glow"></div>
+            <img
+              src="https://media.tenor.com/K_E6ORTmXMoAAAAM/milk-and-mocha-love.gif"
+              alt="Couple sharing a dreamy kiss"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="cta">
+            <div class="cta-content">
+              <p class="badge">Let love win</p>
+              <h2>Promise me a lifetime of adventures</h2>
+              <p>
+                If your answer is yes, I promise to keep creating cozy memories,
+                surprise dates, and endless encouragement. If it's no, I'll keep
+                trying to win that smile of yours.
+              </p>
+            </div>
+
+            <div class="buttons">
+              <button id="yesBtn" class="yes">Yes, forever 💍</button>
+              <button id="noBtn" class="no">I need more time 😕</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-panel">
+          <article class="detail-card">
+            <h3>Moments I love</h3>
+            <ul>
+              <li>That giggle after I get lost in your eyes.</li>
+              <li>How you remember the little things.</li>
+              <li>All the ways you hug my heart safe.</li>
+            </ul>
+          </article>
+          <article class="detail-card">
+            <h3>Plan for us</h3>
+            <p>
+              Candlelit dinner, stargazing walks, and an entire playlist of your
+              favorite songs—starting this Valentine's weekend and continuing for
+              forever.
+            </p>
+          </article>
+          <article class="detail-card">
+            <h3>Promise</h3>
+            <p>
+              I will keep cheering you on, laughing with you, and being the
+              person who always chooses you—no matter where life takes us.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>
