@@ -86,6 +86,20 @@ body::before {
   margin-bottom: 0.75rem;
 }
 
+.partner-name {
+  display: inline-block;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--rose), var(--coral));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: transform 0.3s ease;
+}
+
+.partner-name.animate {
+  transform: translateY(-1px) scale(1.05);
+}
+
 .intro h1 {
   font-family: "Playfair Display", "Times New Roman", serif;
   font-size: clamp(2.5rem, 4vw, 3.6rem);

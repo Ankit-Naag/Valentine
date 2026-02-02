@@ -24,17 +24,74 @@
     </div>
 
     <main class="affirmation">
-    <img
-      src="https://i.pinimg.com/originals/10/40/d7/1040d77f0b0e12fb87a1e5e8c72250bc.gif"
-      alt="Joyful celebration with confetti"
-      loading="lazy"
-    />
-      <h1>Yay! I knew you would say yes 💕</h1>
-      <p>
+      <img
+        src="https://i.pinimg.com/originals/10/40/d7/1040d77f0b0e12fb87a1e5e8c72250bc.gif"
+        alt="Joyful celebration with confetti"
+        loading="lazy"
+      />
+      <h1 id="celebrationTitle">Yay! I knew you would say yes 💕</h1>
+      <p id="celebrationCopy">
         I am over the moon and already dreaming up our next adventure. Thank you
         for letting me be yours—today, tomorrow, and beyond.
       </p>
       <a href="index.html">Plan our next unforgettable date</a>
     </main>
+    <script>
+      (function () {
+        const PARAM_KEYS = ["partner", "name", "p"];
+
+        function normalizeBase64(value) {
+          if (!value) {
+            return "";
+          }
+          let normalized = value.replace(/-/g, "+").replace(/_/g, "/").replace(/\s+/g, "");
+          normalized = normalized.replace(/[^A-Za-z0-9+/=]/g, "");
+          const paddingNeeded = (4 - (normalized.length % 4)) % 4;
+          return normalized + "=".repeat(paddingNeeded);
+        }
+
+        function tryDecodePartnerName(value) {
+          if (!value) {
+            return "";
+          }
+          try {
+            return atob(normalizeBase64(value));
+          } catch {
+            return "";
+          }
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        let encoded = "";
+        for (const key of PARAM_KEYS) {
+          const value = params.get(key);
+          if (value) {
+            encoded = value;
+            break;
+          }
+        }
+
+        const partnerName = tryDecodePartnerName(encoded);
+        if (!partnerName) {
+          return;
+        }
+
+        const title = document.getElementById("celebrationTitle");
+        const copy = document.getElementById("celebrationCopy");
+        if (title) {
+          title.textContent = `Yay! I knew you would say yes, ${partnerName} 💕`;
+        }
+        if (copy) {
+          copy.textContent = `I am over the moon and already dreaming up our next adventure with you, ${partnerName}. Thank you for letting me be yours—today, tomorrow, and beyond.`;
+        }
+
+        const link = document.querySelector(".affirmation a");
+        if (link && encoded) {
+          const nextUrl = new URL(link.href, window.location.href);
+          nextUrl.searchParams.set("partner", encoded);
+          link.href = nextUrl.toString();
+        }
+      })();
+    </script>
   </body>
 </html>
