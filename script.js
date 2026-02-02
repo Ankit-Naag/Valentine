@@ -6,7 +6,8 @@ const messages = [
   "Just think about it... 🤔",
   "Don't break my heart 😭",
   "I'll be very sad if you say no 😔",
-  "Last chance 😳"
+  "Last chance 😳",
+  ""
 ];
 
 const PARTNER_PARAM_KEYS = ["partner", "name", "p"];
