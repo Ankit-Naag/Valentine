@@ -10,10 +10,11 @@ const messages = [
 ];
 
 const PARTNER_PARAM_KEYS = ["partner", "name", "p"];
+const DEFAULT_PARTNER_NAME = "Sakshi";
 let index = 0;
 let yesScale = 1;
 let encodedPartner = "";
-let decodedPartnerName = "";
+let decodedPartnerName = DEFAULT_PARTNER_NAME;
 
 function getEncodedPartnerValue() {
   const params = new URLSearchParams(window.location.search);
@@ -117,7 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   encodedPartner = getEncodedPartnerValue();
-  decodedPartnerName = tryDecodePartnerName(encodedPartner);
+  const derivedName = tryDecodePartnerName(encodedPartner);
+  decodedPartnerName = derivedName || DEFAULT_PARTNER_NAME;
   applyPartnerName(decodedPartnerName);
 
   yesBtn.addEventListener("click", handleYesClick);
